@@ -20,64 +20,64 @@ class _GridState extends State<Grid> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
-          "AMAZON kootampara",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          "AMAZON",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.black),
         ),
         backgroundColor: const Color.fromARGB(255, 212, 184, 97),
         foregroundColor: Colors.black,
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-          child: GridView.builder(
-            itemCount: products.length,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-              childAspectRatio: 0.7,
-            ),
-            itemBuilder: (context, Index) {
-              final pro = products[Index];
-              return Card(
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5),
-                ),
-            child:  Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Expanded(
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(15),
-                        child: Image.asset(pro["image"], fit: BoxFit.cover),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            pro['Name'],
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                            ),
-                          ),
-                          SizedBox(height: 5),
-                          Text(
-                            pro['price'],
-                            style: TextStyle(color: Colors.blueAccent),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            },
+        child: GridView.builder(
+          itemCount: products.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+            childAspectRatio: 0.7,
           ),
+          itemBuilder: (context, Index) {
+            final pro = products[Index];
+            return Card(
+              elevation: 5,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Expanded(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(15),
+                      child: Image.asset(pro["image"], fit: BoxFit.cover),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          pro['Name'],
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+                        SizedBox(height: 5),
+                        Text(
+                          pro['price'],
+                          style: TextStyle(color: Colors.blueAccent),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
         ),
-      );
+      ),
+    );
   }
 }
